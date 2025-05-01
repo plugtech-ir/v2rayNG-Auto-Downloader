@@ -66,8 +66,13 @@
                 if (!releases || releases.length === 0) {
                     throw new Error('هیچ ریلیزی یافت نشد');
                 }
+                // فیلتر کردن pre-releases
+                const stableReleases = releases.filter(release => !release.prerelease);
                 
-                const latestRelease = releases[0];
+                if (stableReleases.length === 0) {
+                    throw new Error('هیچ نسخه پایدار یافت نشد');
+                }
+                const latestRelease = stableReleases[0];
                 const latestVersion = latestRelease.tag_name;
                 const releaseNotes = latestRelease.body;
                 
