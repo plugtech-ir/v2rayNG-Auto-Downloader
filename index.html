@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,16 +18,16 @@
             --border-radius: 12px;
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
-            background-color: #0000001f;
+            background-color: #f8fafc;
             color: var(--text-color);
             line-height: 1.6;
             padding: 0;
@@ -36,46 +37,47 @@
             flex-direction: column;
             justify-content: center;
         }
-        
+
         .container {
             width: 100%;
             max-width: 600px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
-        
+
         .card {
             background-color: white;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             overflow: hidden;
         }
-        
+
         .card-header {
             padding: 1.5rem;
             text-align: center;
             border-bottom: 1px solid #f3f4f6;
         }
-        
+
         .card-header h1 {
             font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-color);
             margin: 0;
         }
-        
+
         .card-body {
             padding: 2rem;
         }
-        
+
         .card-footer {
             padding: 1rem 1.5rem;
             background-color: var(--secondary-color);
             text-align: center;
             font-size: 0.875rem;
             color: var(--light-text);
+            border-top: 1px solid #e5e7eb;
         }
-        
+
         .loading {
             display: flex;
             flex-direction: column;
@@ -83,7 +85,7 @@
             justify-content: center;
             padding: 2rem 0;
         }
-        
+
         .spinner {
             width: 40px;
             height: 40px;
@@ -93,21 +95,25 @@
             animation: spin 1s ease-in-out infinite;
             margin-bottom: 1rem;
         }
-        
+
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
-        
+
         .version-badge {
             display: inline-block;
             background-color: var(--secondary-color);
             color: var(--primary-color);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
+            font-weight: 600;
+            padding: 0.5rem 1.25rem;
             border-radius: 9999px;
             margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            border: 1px solid #e5e7eb;
         }
-        
+
         .download-btn {
             display: block;
             width: 100%;
@@ -119,7 +125,7 @@
             border: none;
             border-radius: 9999px;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
@@ -127,28 +133,25 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .download-btn:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        
-        .download-btn:active {
-            transform: translateY(0);
-        }
-        
+
         .countdown {
             text-align: center;
             color: var(--light-text);
             font-size: 0.875rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
-        
+
         .countdown span {
             color: var(--danger-color);
             font-weight: 600;
         }
-        
+
         .release-notes {
             background-color: var(--secondary-color);
             padding: 1.5rem;
@@ -158,55 +161,187 @@
             margin-top: 1.5rem;
             max-height: 300px;
             overflow-y: auto;
+            border: 1px solid #e5e7eb;
         }
-        
+
         .release-notes-title {
             font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
             color: var(--text-color);
         }
-        
+
         .alert {
             padding: 1rem;
             border-radius: var(--border-radius);
             margin-bottom: 1rem;
             text-align: center;
+            font-weight: 500;
         }
-        
+
         .alert-danger {
             background-color: #fee2e2;
             color: #b91c1c;
+            border: 1px solid #fecaca;
         }
-        
+
         .alert-success {
             background-color: #d1fae5;
             color: #065f46;
+            border: 1px solid #a7f3d0;
         }
-        
+
         a {
             color: var(--primary-color);
             text-decoration: none;
             transition: color 0.2s ease;
+            font-weight: 500;
         }
-        
+
         a:hover {
-            color: var(--success-color);
+            color: var(--primary-hover);
             text-decoration: underline;
         }
-        
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin: 0 auto 1.5rem;
+        }
+
+        .dropdown-btn {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: inherit;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #f5f3ff;
+        }
+
+        .dropdown-btn:after {
+            content: "▼";
+            font-size: 0.7rem;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            z-index: 1;
+            margin-top: 0.5rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: right;
+            border-bottom: 1px solid #f3f4f6;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f5f3ff;
+            color: var(--primary-color);
+        }
+
+        .show {
+            display: block;
+        }
+
+        .version-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+        }
+
+        .version-tag {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .version-date {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            direction: ltr;
+        }
+
+        .version-divider {
+            height: 1px;
+            background-color: #e5e7eb;
+            margin: 0.25rem 0;
+        }
+
+        .update-section {
+            background-color: #f5f3ff;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .update-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .update-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
         @media (max-width: 640px) {
             .container {
                 padding: 0 0.75rem;
                 margin: 1rem auto;
             }
-            
+
             .card-body {
                 padding: 1.5rem;
             }
+
+            .version-item {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 0.25rem;
+            }
+
+        }
+
+        .version-disabled {
+            color: #9ca3af;
+            cursor: not-allowed;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="card">
@@ -221,7 +356,9 @@
             </div>
             <div class="card-footer">
                 <div>نوشته شده توسط: <a href="https://t.me/dvhost_cloud">DVHOST.CLOUD</a></div>
-                <div style="margin-top: 0.5rem">این صفحه آخرین نسخه را از <a href="https://github.com/2dust/v2rayNG/releases" target="_blank">صفحه ریلیزهای GitHub</a> دریافت می‌کند</div>
+                <div style="margin-top: 0.5rem">این صفحه آخرین نسخه را از <a
+                        href="https://github.com/2dust/v2rayNG/releases" target="_blank">صفحه ریلیزهای GitHub</a> دریافت
+                    می‌کند</div>
             </div>
         </div>
     </div>
@@ -235,36 +372,48 @@
                     throw new Error('خطا در دریافت اطلاعات از GitHub');
                 }
                 const releases = await response.json();
-                
+
                 if (!releases || releases.length === 0) {
                     throw new Error('هیچ ریلیزی یافت نشد');
                 }
 
-                // فیلتر کردن pre-releases
-                const stableReleases = releases.filter(release => !release.prerelease);
-                
+                // فیلتر کردن pre-releases و نسخه‌های تکراری
+                function cleanVersion(tag) {
+                    return tag.replace(/^v/i, '').split('-')[0]; // v1.8.3-beta → 1.8.3
+                }
+
+                const seenVersions = new Set();
+                const stableReleases = releases.filter(release => {
+                    const cleanTag = cleanVersion(release.tag_name);
+                    if (release.prerelease || seenVersions.has(cleanTag)) {
+                        return false;
+                    }
+                    seenVersions.add(cleanTag);
+                    return true;
+                });
+
                 if (stableReleases.length === 0) {
                     throw new Error('هیچ نسخه پایدار یافت نشد');
                 }
-                       
+
                 const latestRelease = stableReleases[0];
                 const latestVersion = latestRelease.tag_name;
                 const releaseNotes = latestRelease.body;
-                
+
                 // یافتن لینک دانلود universal
                 let universalDownloadUrl = '';
                 if (latestRelease.assets) {
-                    const universalAsset = latestRelease.assets.find(asset => 
+                    const universalAsset = latestRelease.assets.find(asset =>
                         asset.name.includes('universal.apk')
                     );
                     if (universalAsset) {
                         universalDownloadUrl = universalAsset.browser_download_url;
                     }
                 }
-                
+
                 // نمایش اطلاعات
-                renderReleaseInfo(latestVersion, universalDownloadUrl, releaseNotes);
-                
+                renderReleaseInfo(latestVersion, universalDownloadUrl, releaseNotes, stableReleases);
+
             } catch (error) {
                 document.getElementById('content').innerHTML = `
                     <div class="alert alert-danger">
@@ -273,23 +422,30 @@
                 `;
             }
         }
-        
+
         // تابع برای نمایش اطلاعات ریلیز
-        function renderReleaseInfo(version, downloadUrl, notes) {
+        function renderReleaseInfo(version, downloadUrl, notes, allReleases) {
             let content = '';
-            
+
             if (version) {
                 content += `
                     <div class="text-center">
                         <div class="version-badge">نسخه ${version}</div>
                     </div>
                 `;
-                
+
                 if (downloadUrl) {
                     content += `
                         <a href="${downloadUrl}" class="download-btn" id="downloadBtn">
                             دانلود نسخه آخر
                         </a>
+                        
+                        <div class="dropdown">
+                            <button onclick="toggleDropdown()" class="dropdown-btn">نمایش تمام نسخه‌ها</button>
+                            <div id="versionsDropdown" class="dropdown-content">
+                                ${generateVersionList(allReleases)}
+                            </div>
+                        </div>
                         
                         <div class="countdown">
                             دانلود به صورت خودکار در <span id="countdown">10</span> ثانیه
@@ -302,11 +458,11 @@
                         </div>
                     `;
                 }
-                
+
                 if (notes) {
                     content += `
                         <div>
-                            <div class="release-notes-title">توضیحات نسخه:</div>
+                            <div class="release-notes-title">تغییرات نسخه:</div>
                             <div class="release-notes">${notes}</div>
                         </div>
                     `;
@@ -318,31 +474,77 @@
                     </div>
                 `;
             }
-            
+
             document.getElementById('content').innerHTML = content;
-            
+
             // فعال کردن دانلود خودکار اگر لینک دانلود وجود دارد
             if (downloadUrl) {
                 startCountdown(downloadUrl);
             }
         }
-        
+
+        // تابع برای تولید لیست نسخه‌ها
+        function generateVersionList(releases) {
+            return releases.map(release => {
+                const date = new Date(release.published_at).toLocaleDateString('fa-IR');
+                const universalAsset = release.assets?.find(asset =>
+                    asset.name.includes('universal.apk')
+                );
+
+                if (universalAsset) {
+                    return `
+                        <a href="${universalAsset.browser_download_url}" class="version-item">
+                            <span class="version-tag">${release.tag_name}</span>
+                            <span class="version-date">${date}</span>
+                        </a>
+                        <div class="version-divider"></div>
+                    `;
+                } else {
+                    return `
+                        <div class="version-item version-disabled">
+                            <span class="version-tag">${release.tag_name}</span>
+                            <span class="version-date">${date} (بدون نسخه یونیورسال)</span>
+                        </div>
+                        <div class="version-divider"></div>
+                    `;
+                }
+            }).join('');
+        }
+
+        // تابع برای نمایش/مخفی کردن لیست نسخه‌ها
+        function toggleDropdown() {
+            document.getElementById("versionsDropdown").classList.toggle("show");
+        }
+
+        // بستن لیست وقتی کاربر خارج از آن کلیک کند
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown-btn') && !event.target.closest('.dropdown-btn')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
         // تابع برای شروع تایمر دانلود خودکار
         function startCountdown(downloadUrl) {
             let seconds = 10;
             const countdownElement = document.getElementById('countdown');
             const downloadBtn = document.getElementById('downloadBtn');
-            
+
             const countdownInterval = setInterval(() => {
                 seconds--;
                 countdownElement.textContent = seconds;
-                
+
                 if (seconds <= 0) {
                     clearInterval(countdownInterval);
                     window.location.href = downloadUrl;
                 }
             }, 1000);
-            
+
             // امکان توقف تایمر با کلیک روی دکمه
             downloadBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -351,9 +553,10 @@
                 window.location.href = downloadUrl;
             });
         }
-        
+
         // شروع فرآیند هنگام لود صفحه
         document.addEventListener('DOMContentLoaded', fetchReleases);
     </script>
 </body>
+
 </html>
