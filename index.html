@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دانلود آخرین نسخه v2rayNG</title>
+    <!-- فونت Vazirmatn -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap">
+    <!-- فونت آیکون Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #4f46e5;
@@ -56,6 +59,7 @@
             padding: 1.5rem;
             text-align: center;
             border-bottom: 1px solid #f3f4f6;
+            position: relative;
         }
 
         .card-header h1 {
@@ -63,6 +67,14 @@
             font-weight: 700;
             color: var(--primary-color);
             margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .card-header h1 i {
+            font-size: 1.3em;
         }
 
         .card-body {
@@ -103,7 +115,8 @@
         }
 
         .version-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background-color: var(--secondary-color);
             color: var(--primary-color);
             font-weight: 600;
@@ -112,10 +125,13 @@
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             border: 1px solid #e5e7eb;
+            gap: 0.5rem;
         }
 
         .download-btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             width: 100%;
             max-width: 300px;
             margin: 0 auto 1.5rem;
@@ -132,9 +148,12 @@
             transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
+            gap: 0.5rem;
         }
 
         .download-btn:hover {
+            color: #ccc;
+            text-decoration: none;
             background-color: var(--primary-hover);
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -145,30 +164,15 @@
             color: var(--light-text);
             font-size: 0.875rem;
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
         }
 
         .countdown span {
             color: var(--danger-color);
             font-weight: 600;
-        }
-
-        .release-notes {
-            background-color: var(--secondary-color);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            font-size: 0.875rem;
-            white-space: pre-line;
-            margin-top: 1.5rem;
-            max-height: 300px;
-            overflow-y: auto;
-            border: 1px solid #e5e7eb;
-        }
-
-        .release-notes-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text-color);
         }
 
         .alert {
@@ -177,6 +181,14 @@
             margin-bottom: 1rem;
             text-align: center;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .alert i {
+            font-size: 1.2em;
         }
 
         .alert-danger {
@@ -234,11 +246,6 @@
             background-color: #f5f3ff;
         }
 
-        .dropdown-btn:after {
-            content: "▼";
-            font-size: 0.7rem;
-        }
-
         .dropdown-content {
             display: none;
             position: absolute;
@@ -282,6 +289,9 @@
         .version-tag {
             font-weight: 600;
             color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .version-date {
@@ -339,6 +349,117 @@
             color: #9ca3af;
             cursor: not-allowed;
         }
+        
+        /* Checkbox Styles */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-label {
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        
+        .checkbox-input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .beta-badge {
+            background-color: #fef3c7;
+            color: #92400e;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        /* Accordion Styles */
+        .accordion {
+            margin-top: 1.5rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .accordion-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .accordion-header {
+            background-color: var(--secondary-color);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .accordion-header:hover {
+            background-color: #e5e7eb;
+        }
+        
+        .accordion-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: white;
+        }
+        
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+        }
+        
+        .accordion-body {
+            padding: 1rem 1.5rem;
+            font-size: 0.875rem;
+            white-space: pre-line;
+            line-height: 1.7;
+        }
+
+        /* Footer Links */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .footer-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
     </style>
 </head>
 
@@ -346,7 +467,7 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h1>دانلود آخرین نسخه v2rayNG</h1>
+                <h1><i class="fas fa-rocket"></i>دانلود آخرین نسخه v2rayNG</h1>
             </div>
             <div class="card-body" id="content">
                 <div class="loading">
@@ -355,8 +476,8 @@
                 </div>
             </div>
             <div class="card-footer">
-                <div>نوشته شده توسط: <a href="https://t.me/dvhost_cloud">DVHOST.CLOUD</a></div>
-                <div style="margin-top: 0.5rem">این صفحه آخرین نسخه را از <a
+                <div>نوشته شده توسط <a href="https://t.me/dvhost_cloud">DVHOST.CLOUD</a></div>
+                <div>این صفحه آخرین نسخه را از <a
                         href="https://github.com/2dust/v2rayNG/releases" target="_blank">صفحه ریلیزهای GitHub</a> دریافت
                     می‌کند</div>
             </div>
@@ -377,7 +498,7 @@
                     throw new Error('هیچ ریلیزی یافت نشد');
                 }
 
-                // فیلتر کردن pre-releases و نسخه‌های تکراری
+                // فیلتر کردن نسخه‌های تکراری
                 function cleanVersion(tag) {
                     return tag.replace(/^v/i, '').split('-')[0]; // v1.8.3-beta → 1.8.3
                 }
@@ -385,11 +506,11 @@
                 const seenVersions = new Set();
                 const stableReleases = releases.filter(release => {
                     const cleanTag = cleanVersion(release.tag_name);
-                    if (release.prerelease || seenVersions.has(cleanTag)) {
+                    if (seenVersions.has(cleanTag)) {
                         return false;
                     }
                     seenVersions.add(cleanTag);
-                    return true;
+                    return !release.prerelease;
                 });
 
                 if (stableReleases.length === 0) {
@@ -412,11 +533,12 @@
                 }
 
                 // نمایش اطلاعات
-                renderReleaseInfo(latestVersion, universalDownloadUrl, releaseNotes, stableReleases);
+                renderReleaseInfo(latestVersion, universalDownloadUrl, releaseNotes, releases);
 
             } catch (error) {
                 document.getElementById('content').innerHTML = `
                     <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle"></i>
                         ${error.message}
                     </div>
                 `;
@@ -430,30 +552,48 @@
             if (version) {
                 content += `
                     <div class="text-center">
-                        <div class="version-badge">نسخه ${version}</div>
+                        <div class="version-badge">
+                            <i class="fas fa-tag"></i>
+                            نسخه ${version}
+                        </div>
                     </div>
                 `;
 
                 if (downloadUrl) {
                     content += `
                         <a href="${downloadUrl}" class="download-btn" id="downloadBtn">
+                            <i class="fas fa-download"></i>
                             دانلود نسخه آخر
                         </a>
                         
+
+                        
                         <div class="dropdown">
-                            <button onclick="toggleDropdown()" class="dropdown-btn">نمایش تمام نسخه‌ها</button>
+                            <button onclick="toggleDropdown()" class="dropdown-btn">
+                                <i class="fas fa-list-ul"></i>
+                                نمایش تمام نسخه‌ها
+                            </button>
                             <div id="versionsDropdown" class="dropdown-content">
-                                ${generateVersionList(allReleases)}
+                                ${generateVersionList(allReleases, false)}
                             </div>
                         </div>
-                        
                         <div class="countdown">
+                            <i class="fas fa-clock"></i>
                             دانلود به صورت خودکار در <span id="countdown">10</span> ثانیه
                         </div>
+						<div class="checkbox-container">
+                            <input type="checkbox" id="showBeta" class="checkbox-input" onchange="toggleBetaReleases()">
+                            <label for="showBeta" class="checkbox-label">
+                                <i class="fas fa-flask"></i>
+                                نمایش نسخه‌های بتا و پیش از انتشار
+                            </label>
+                        </div>
+
                     `;
                 } else {
                     content += `
                         <div class="alert alert-danger">
+                            <i class="fas fa-times-circle"></i>
                             نسخه یونیورسال در این ریلیز یافت نشد.
                         </div>
                     `;
@@ -461,15 +601,26 @@
 
                 if (notes) {
                     content += `
-                        <div>
-                            <div class="release-notes-title">تغییرات نسخه:</div>
-                            <div class="release-notes">${notes}</div>
+                        <div class="accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header" onclick="toggleAccordion(this)">
+                                    <span class="accordion-title">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        مشاهده تغییرات نسخه ${version}
+                                    </span>
+                                    <span class="accordion-icon"><i class="fas fa-chevron-down"></i></span>
+                                </div>
+                                <div class="accordion-content">
+                                    <div class="accordion-body">${notes}</div>
+                                </div>
+                            </div>
                         </div>
                     `;
                 }
             } else {
                 content = `
                     <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle"></i>
                         خطا در دریافت اطلاعات از GitHub. لطفاً دوباره تلاش کنید.
                     </div>
                 `;
@@ -477,15 +628,44 @@
 
             document.getElementById('content').innerHTML = content;
 
+            // ذخیره تمام ریلیزها برای استفاده بعدی
+            window.allReleases = allReleases;
+
             // فعال کردن دانلود خودکار اگر لینک دانلود وجود دارد
             if (downloadUrl) {
                 startCountdown(downloadUrl);
             }
         }
 
+        // تابع برای نمایش/مخفی کردن نسخه‌های بتا
+        function toggleBetaReleases() {
+            const showBeta = document.getElementById('showBeta').checked;
+            const dropdownContent = document.getElementById('versionsDropdown');
+            
+            if (dropdownContent) {
+                dropdownContent.innerHTML = generateVersionList(window.allReleases, showBeta);
+            }
+        }
+
         // تابع برای تولید لیست نسخه‌ها
-        function generateVersionList(releases) {
+        function generateVersionList(releases, includeBeta = false) {
+            const seenVersions = new Set();
+            
             return releases.map(release => {
+                const cleanTag = release.tag_name.replace(/^v/i, '').split('-')[0];
+                
+                // اگر نسخه بتا نباشد و قبلا دیده شده باشد، نمایش نده
+                if (!release.prerelease && seenVersions.has(cleanTag)) {
+                    return '';
+                }
+                
+                // اگر نسخه بتا باشد و کاربر نخواهد، نمایش نده
+                if (release.prerelease && !includeBeta) {
+                    return '';
+                }
+                
+                seenVersions.add(cleanTag);
+                
                 const date = new Date(release.published_at).toLocaleDateString('fa-IR');
                 const universalAsset = release.assets?.find(asset =>
                     asset.name.includes('universal.apk')
@@ -494,16 +674,18 @@
                 if (universalAsset) {
                     return `
                         <a href="${universalAsset.browser_download_url}" class="version-item">
-                            <span class="version-tag">${release.tag_name}</span>
-                            <span class="version-date">${date}</span>
+                            ${release.prerelease ? '<span class="beta-badge"><i class="fas fa-flask"></i>بتا</span>' : ''}
+                            <span class="version-tag"><i class="fas fa-code-branch"></i>${release.tag_name}</span>
+                            <span class="version-date"><i class="far fa-calendar-alt"></i>${date}</span>
                         </a>
                         <div class="version-divider"></div>
                     `;
                 } else {
                     return `
                         <div class="version-item version-disabled">
-                            <span class="version-tag">${release.tag_name}</span>
-                            <span class="version-date">${date} (بدون نسخه یونیورسال)</span>
+                            ${release.prerelease ? '<span class="beta-badge"><i class="fas fa-flask"></i>بتا</span>' : ''}
+                            <span class="version-tag"><i class="fas fa-code-branch"></i>${release.tag_name}</span>
+                            <span class="version-date"><i class="far fa-calendar-alt"></i>${date} (بدون نسخه یونیورسال)</span>
                         </div>
                         <div class="version-divider"></div>
                     `;
@@ -514,6 +696,12 @@
         // تابع برای نمایش/مخفی کردن لیست نسخه‌ها
         function toggleDropdown() {
             document.getElementById("versionsDropdown").classList.toggle("show");
+        }
+
+        // تابع برای نمایش/مخفی کردن آکاردئون
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
         }
 
         // بستن لیست وقتی کاربر خارج از آن کلیک کند
